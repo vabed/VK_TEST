@@ -1,2 +1,2 @@
 # VK_TEST
-Test application on VK API
+Test Android application on VK API
