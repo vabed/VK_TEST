@@ -32,8 +32,7 @@ public class Statistics extends Activity {
         men.setText(String.valueOf(men_count));
         int city_count = intent.getIntExtra("com.example.user.vk_test4",1);
         in_city.setText(String.valueOf(city_count));
-        //city = intent.getStringExtra("com.example.user.vk_test4");
-        //in_city.setText(city);
+
     }
 
 }
