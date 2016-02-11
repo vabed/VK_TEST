@@ -6,16 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/showMessage"
-        android:text="showMessage"
-        />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.9">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/showMessage"
+            android:text="show Messages"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/statistik"
+            android:text="show Statistik" />
+
+    </LinearLayout>
+
     <ListView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/listView"></ListView>
+
 
 
 </LinearLayout>

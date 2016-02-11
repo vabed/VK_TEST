@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <integer name="com_vk_sdk_AppId">5256169</integer>
     <string name="showMsg">Show Message</string>
+    <string name="title_activity_statistics">Statistics</string>
 </resources>

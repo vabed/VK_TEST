@@ -13,9 +13,7 @@ import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
 
-/**
- * Created by User on 05.02.2016.
- */
+
 public class Message_Activity extends Activity {
     private Button send_message;
     private EditText message;
