@@ -84,7 +84,7 @@ public class CustomAdapter extends BaseAdapter {
                             VKApiMessage msg;
                             for (int i = 0; i < array.length(); i++) {
                                 msg = new VKApiMessage(array.getJSONObject(i));
-                                msg.
+
                                 bodys.add(msg.body);
                                 states_of_msg[i] = msg.out;
                             }

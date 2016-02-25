@@ -5,7 +5,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -48,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private int id_user_city;
     private int count_city = 0;
     private String user_city;
+    private ArrayList<String> friends = new ArrayList<>();
+    private ArrayList<String> images = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         VKSdk.login(this, scope);
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResult(VKAccessToken res) {
                 my_id = Integer.parseInt(res.userId);
 
-                VKRequest request = VKApi.friends().get(VKParameters.from(VKApiConst.FIELDS,",first_name,last_name,online,city,sex"));
+                VKRequest request = VKApi.friends().get(VKParameters.from(VKApiConst.FIELDS,",first_name,last_name,online,city,sex,photo_50"));
                 VKRequest user_request = VKApi.users().get(VKParameters.from(VKApiConst.USER_IDS,String.valueOf(my_id),VKApiConst.FIELDS,"city"));
 
                 user_request.executeWithListener(new VKRequest.VKRequestListener() {
@@ -134,13 +135,11 @@ public class MainActivity extends AppCompatActivity {
 
                         friend_count = list_friends.getCount();
                         int id_friend_city;
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MainActivity.this,
-                                android.R.layout.simple_expandable_list_item_1, list_friends);
 
-                        listView.setAdapter(arrayAdapter);
 
                        for (int i = 0; i < list_friends.getCount(); i++) {
                             try {
+
                                 if (Integer.parseInt(list_friends.get(i).fields.getString("online")) == 1) {
                                     online_count++;
                                 }
@@ -161,7 +160,11 @@ public class MainActivity extends AppCompatActivity {
                                 online_count = i;
                                 e.printStackTrace();
                             }
+
                             }
+
+                        listView.setAdapter(new ImageList(MainActivity.this,list_friends) );
+
 
                     }
                 });
